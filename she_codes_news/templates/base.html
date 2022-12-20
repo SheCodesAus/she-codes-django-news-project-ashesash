@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 
 <html lang="en">
@@ -5,21 +6,25 @@
         <meta charset="utf-8">
         <title>She Codes News</title>
         <meta name="description" content="">
-        <meta name="author" content="Hayley van Waas">
-        <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="">
+        <meta name="author" content="Ash">
+        <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm.min.css">
+        {% block stylesheets %}{% endblock %}
     </head>
 
     <body>
         <header>
             <div id="header-text">
                 <a id="header-link" href="{% url 'news:index' %}">
-                    <h1>She {Codes} News</h1>
+                    <img src= "{% static "news/images/logo_long.png" %}" alt="home" />
+                    {% comment %} <h1>She {Codes} News</h1> {% endcomment %}
                 </a>
             </div>
             <!-- include nav here -->
+            {% include './nav.html' %}
         </header>
 
         <!-- content blocks here -->
+        {% block content %}{% endblock %}
     </body>
 </html>
